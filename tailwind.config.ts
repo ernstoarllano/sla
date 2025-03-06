@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-lato)"],
+        serif: ["var(--font-playfair)", "serif"],
       },
       colors: {
         // Solace brand colors - Green
@@ -74,10 +75,26 @@ const config: Config = {
         input: "hsl(var(--input))",
         ring: "#265b4e",
       },
+      borderColor: {
+        solace: "#d4e2dd",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        solace: "0 4px 6px -4px #0000001a,0 10px 15px -3px #0000001a",
+      },
+      backgroundImage: {
+        "gradient-pattern": `
+          linear-gradient(var(--tw-gradient-stops)),
+          url('https://cdn.prod.website-files.com/632a21d0ec93a082b11988a0/65d577f2611a585c10627879_Frame%2013102.svg'),
+          linear-gradient(to bottom, #fff, #fff)
+        `,
+      },
+      gradientColorStops: {
+        "opal-light": "#e9f0ee33",
       },
     },
   },

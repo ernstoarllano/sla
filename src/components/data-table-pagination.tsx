@@ -1,26 +1,26 @@
-import { Table } from '@tanstack/react-table';
+import { Table } from "@tanstack/react-table";
 import {
   ChevronLeft,
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
-import { type Advocate } from '@/lib/api';
+import { type Advocate } from "@/lib/api";
 
-interface AdvocatesTablePaginationProps {
+interface DataTablePaginationProps {
   table: Table<Advocate>;
   pageSize: number;
   setRowsPerPage: (size: number) => void;
 }
 
-export function AdvocatesTablePagination({
+export function DataTablePagination({
   table,
   pageSize,
   setRowsPerPage,
-}: AdvocatesTablePaginationProps) {
+}: DataTablePaginationProps) {
   return (
     <div className="flex items-center justify-between px-2">
       <div className="flex-1 text-sm text-muted-foreground">
@@ -42,7 +42,7 @@ export function AdvocatesTablePagination({
           </select>
         </div>
         <div className="flex w-[100px] items-center justify-center text-sm font-medium">
-          Page {table.getState().pagination.pageIndex + 1} of{' '}
+          Page {table.getState().pagination.pageIndex + 1} of{" "}
           {table.getPageCount()}
         </div>
         <div className="flex items-center space-x-2">

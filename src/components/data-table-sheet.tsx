@@ -1,34 +1,32 @@
-import { Phone } from 'lucide-react';
+import { Phone } from "lucide-react";
 
-import { Badge } from '@/components/ui/badge';
+import { Badge } from "@/components/ui/badge";
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from '@/components/ui/sheet';
+} from "@/components/ui/sheet";
 
-import { type Advocate } from '@/lib/api';
-
-interface AdvocateDetailsSheetProps {
-  advocate: Advocate | null;
+interface DataTableSheetProps {
+  data: any;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-export function AdvocateDetailsSheet({
-  advocate,
+export function DataTableSheet({
+  data,
   open,
   onOpenChange,
-}: AdvocateDetailsSheetProps) {
+}: DataTableSheetProps) {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent className="sm:max-w-[540px]">
-        {advocate && (
+        {data && (
           <SheetHeader>
             <SheetTitle className="text-xl font-bold">
-              {advocate.firstName} {advocate.lastName}
+              {data.firstName} {data.lastName}
             </SheetTitle>
             <SheetDescription>
               <div className="mt-6 space-y-6">
@@ -39,7 +37,7 @@ export function AdvocateDetailsSheet({
                   <div className="mt-2 space-y-2">
                     <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                       <Phone className="mr-2 h-4 w-4" />
-                      {advocate.phoneNumber}
+                      {data.phoneNumber}
                     </div>
                   </div>
                 </div>
@@ -49,7 +47,7 @@ export function AdvocateDetailsSheet({
                     Location
                   </h3>
                   <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                    {advocate.city}
+                    {data.city}
                   </p>
                 </div>
 
@@ -58,8 +56,8 @@ export function AdvocateDetailsSheet({
                     Professional Details
                   </h3>
                   <div className="mt-2 space-y-2 text-sm text-gray-500 dark:text-gray-400">
-                    <p>Degree: {advocate.degree}</p>
-                    <p>Years of Experience: {advocate.yearsOfExperience}</p>
+                    <p>Degree: {data.degree}</p>
+                    <p>Years of Experience: {data.yearsOfExperience}</p>
                   </div>
                 </div>
 
@@ -68,11 +66,13 @@ export function AdvocateDetailsSheet({
                     Specialties
                   </h3>
                   <div className="mt-2 flex flex-wrap gap-2">
-                    {advocate.specialties.map((specialty, index) => (
-                      <Badge key={index} variant="secondary">
-                        {specialty}
-                      </Badge>
-                    ))}
+                    {data.specialties.map(
+                      (specialty: string, index: number) => (
+                        <Badge key={index} variant="secondary">
+                          {specialty}
+                        </Badge>
+                      )
+                    )}
                   </div>
                 </div>
               </div>
