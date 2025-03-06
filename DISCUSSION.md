@@ -91,6 +91,7 @@ export async function GET() {
 
 ## Wish I Had Time For
 
+- Dark mode
 - Add query state management
 - Implement filters for specialties and cities
 - Leverage React Server Components where possible to reduce client-side JavaScript
