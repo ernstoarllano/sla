@@ -1,8 +1,16 @@
 import db from '@/db';
 import { advocates } from '@/db/schema';
+import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const data = await db.select().from(advocates);
-
-  return Response.json({ data });
+  try {
+    const data = await db.select().from(advocates);
+    return NextResponse.json({ data }, { status: 200 });
+  } catch (error) {
+    console.error('Database error:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch advocates' },
+      { status: 500 },
+    );
+  }
 }
