@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { AdvocatesTable } from "@/components/advocates-table";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { AdvocatesTable } from '@/components/advocates-table';
+import { ThemeToggle } from '@/components/theme-toggle';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useAdvocates } from "@/hooks/use-advocates";
+} from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
+import { useAdvocates } from '@/hooks/use-advocates';
 
 export default function Home() {
   const { data: advocates = [], isFetching, refetch } = useAdvocates();

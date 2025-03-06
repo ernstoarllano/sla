@@ -1,14 +1,14 @@
-import { RefreshCw } from "lucide-react";
+import { RefreshCw } from 'lucide-react';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from '@/components/ui/tooltip';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 interface DataTableRefreshProps {
   isFetching?: boolean;
@@ -33,7 +33,7 @@ export function DataTableRefresh({
             className="flex items-center gap-2 px-3 h-8"
           >
             <RefreshCw
-              className={cn("h-4 w-4", isFetching && "animate-spin")}
+              className={cn('h-4 w-4', isFetching && 'animate-spin')}
             />
             <span className="hidden sm:inline-block">Refresh List</span>
             <span className="sr-only">Refresh advocates list</span>

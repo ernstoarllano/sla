@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   type ColumnFiltersState,
@@ -10,14 +10,14 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table";
-import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
-import { useEffect, useState } from "react";
+} from '@tanstack/react-table';
+import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
-import { columns } from "@/components/advocates-columns";
-import { DataTablePagination } from "@/components/data-table-pagination";
-import { DataTableSheet } from "@/components/data-table-sheet";
-import { DataTableToolbar } from "@/components/data-table-toolbar";
+import { columns } from '@/components/advocates-columns';
+import { DataTablePagination } from '@/components/data-table-pagination';
+import { DataTableSheet } from '@/components/data-table-sheet';
+import { DataTableToolbar } from '@/components/data-table-toolbar';
 import {
   Table,
   TableBody,
@@ -25,10 +25,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 
-import { type Advocate } from "@/lib/api";
-import { cn } from "@/lib/utils";
+import { type Advocate } from '@/lib/api';
+import { cn } from '@/lib/utils';
 
 interface AdvocatesTableProps {
   advocates: Advocate[];
@@ -50,7 +50,7 @@ export function AdvocatesTable({
     pageSize: rowsPerPage,
   });
   const [selectedAdvocate, setSelectedAdvocate] = useState<Advocate | null>(
-    null
+    null,
   );
 
   const pagination = { pageIndex, pageSize };
@@ -77,19 +77,19 @@ export function AdvocatesTable({
     globalFilterFn: (row, _columnId, filterValue) => {
       const searchValue = filterValue.toLowerCase();
 
-      const firstName = String(row.getValue("firstName")).toLowerCase();
+      const firstName = String(row.getValue('firstName')).toLowerCase();
       if (firstName.includes(searchValue)) return true;
 
-      const lastName = String(row.getValue("lastName")).toLowerCase();
+      const lastName = String(row.getValue('lastName')).toLowerCase();
       if (lastName.includes(searchValue)) return true;
 
-      const city = String(row.getValue("city")).toLowerCase();
+      const city = String(row.getValue('city')).toLowerCase();
       if (city.includes(searchValue)) return true;
 
-      const specialties = row.getValue("specialties") as string[];
+      const specialties = row.getValue('specialties') as string[];
       if (
         specialties.some((specialty) =>
-          specialty.toLowerCase().includes(searchValue)
+          specialty.toLowerCase().includes(searchValue),
         )
       )
         return true;
@@ -125,22 +125,22 @@ export function AdvocatesTable({
                     {header.isPlaceholder ? null : (
                       <div
                         className={cn(
-                          "flex items-center gap-2 text-sm font-semibold text-primary",
+                          'flex items-center gap-2 text-sm font-semibold text-primary',
                           header.column.getCanSort() &&
-                            "cursor-pointer select-none hover:text-primary/80"
+                            'cursor-pointer select-none hover:text-primary/80',
                         )}
                         onClick={header.column.getToggleSortingHandler()}
                       >
                         {flexRender(
                           header.column.columnDef.header,
-                          header.getContext()
+                          header.getContext(),
                         )}
                         {header.column.getCanSort() && (
                           <span className="text-muted-foreground">
-                            {header.column.getIsSorted() === "asc" && (
+                            {header.column.getIsSorted() === 'asc' && (
                               <ArrowUp className="h-4 w-4" />
                             )}
-                            {header.column.getIsSorted() === "desc" && (
+                            {header.column.getIsSorted() === 'desc' && (
                               <ArrowDown className="h-4 w-4" />
                             )}
                             {!header.column.getIsSorted() && (
@@ -160,7 +160,7 @@ export function AdvocatesTable({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() && 'selected'}
                   onClick={() => setSelectedAdvocate(row.original)}
                   className="cursor-pointer hover:bg-muted/85"
                 >
@@ -168,7 +168,7 @@ export function AdvocatesTable({
                     <TableCell key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
-                        cell.getContext()
+                        cell.getContext(),
                       )}
                     </TableCell>
                   ))}

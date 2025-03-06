@@ -1,10 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query';
 
-import { fetchAdvocates, type Advocate } from "@/lib/api";
+import { fetchAdvocates, type Advocate } from '@/lib/api';
 
 export function useAdvocates() {
   return useQuery({
-    queryKey: ["advocates"],
+    queryKey: ['advocates'],
     queryFn: fetchAdvocates,
   });
 }

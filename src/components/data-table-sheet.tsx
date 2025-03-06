@@ -1,13 +1,13 @@
-import { Phone } from "lucide-react";
+import { Phone } from 'lucide-react';
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge';
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@/components/ui/sheet";
+} from '@/components/ui/sheet';
 
 interface DataTableSheetProps {
   data: any;
@@ -71,7 +71,7 @@ export function DataTableSheet({
                         <Badge key={index} variant="secondary">
                           {specialty}
                         </Badge>
-                      )
+                      ),
                     )}
                   </div>
                 </div>

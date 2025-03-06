@@ -1,10 +1,10 @@
-import { Table } from "@tanstack/react-table";
+import { Table } from '@tanstack/react-table';
 
-import { DataTableRefresh } from "@/components/data-table-refresh";
-import { DataTableSearch } from "@/components/data-table-search";
-import { DataTableViewOptions } from "@/components/data-table-view-options";
+import { DataTableRefresh } from '@/components/data-table-refresh';
+import { DataTableSearch } from '@/components/data-table-search';
+import { DataTableViewOptions } from '@/components/data-table-view-options';
 
-import { type Advocate } from "@/lib/api";
+import { type Advocate } from '@/lib/api';
 
 interface DataTableToolbarProps {
   table: Table<Advocate>;
